@@ -67,7 +67,7 @@ export const translations = {
   support: {
     title: { en: 'Support Our Ministry', zh: '支持我們的事工' },
     text: { en: "Your generous giving helps us continue to spread God's love within and beyond the community. Every gift supports our church ministries, community services, and outreach projects. Thank you for your generosity!", zh: '您的慷慨奉獻將幫助我們繼續在社區內外傳播神的愛。每一份支持都將用於教會事工、社區服務和福音傳播項目。感謝您的奉獻！' },
-    button: { en: 'Donate Now', zh: '立即奉獻' },
+    button: { en: 'Give Now', zh: '立即奉獻' },
   },
   giving: {
     title: { en: 'Give Generously', zh: '慷慨奉獻' },

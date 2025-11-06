@@ -44,7 +44,30 @@ function App() {
 
   // Handle side-effects of route changes (e.g., scrolling)
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Differentiate between page navigation and in-page anchors
+    if (route.startsWith('#/')) {
+      // This is a page-level navigation (e.g., #/sermons). Scroll to top.
+      window.scrollTo(0, 0);
+    } else {
+      // This is an in-page anchor link (e.g., #about).
+      const id = route.substring(1);
+      if (id) {
+        const element = document.getElementById(id);
+        if (element) {
+          // Use modern CSS for smooth scrolling with an offset for the sticky header.
+          const header = document.querySelector('header');
+          const headerHeight = header ? header.offsetHeight : 100; // Fallback height
+          document.documentElement.style.scrollPaddingTop = `${headerHeight}px`;
+
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Clean up the style after the scroll animation is likely to have finished.
+          setTimeout(() => {
+            document.documentElement.style.scrollPaddingTop = '';
+          }, 1000);
+        }
+      }
+    }
   }, [route]);
 
   const renderPage = () => {

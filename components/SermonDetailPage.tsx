@@ -43,15 +43,18 @@ const SermonDetailPage: React.FC<SermonDetailPageProps> = ({ sermonId }) => {
 
   return (
     <div className="bg-white">
-      <div className="aspect-w-16 aspect-h-9 bg-black">
-        <iframe
-          src={`https://www.youtube.com/embed/${sermon.youtubeId}?autoplay=1`}
-          title={sermonTitle}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full"
-        ></iframe>
+      {/* Theater mode video player */}
+      <div className="w-full bg-black">
+        <div className="aspect-video">
+          <iframe
+            src={`https://www.youtube.com/embed/${sermon.youtubeId}?autoplay=1`}
+            title={sermonTitle}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full"
+          ></iframe>
+        </div>
       </div>
 
       <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">

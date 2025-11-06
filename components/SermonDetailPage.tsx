@@ -45,14 +45,15 @@ const SermonDetailPage: React.FC<SermonDetailPageProps> = ({ sermonId }) => {
     <div className="bg-white">
       {/* Theater mode video player */}
       <div className="w-full bg-black">
-        <div className="aspect-video">
+        {/* Container with forced 16:9 aspect ratio */}
+        <div className="relative" style={{ paddingTop: '56.25%' }}>
           <iframe
             src={`https://www.youtube.com/embed/${sermon.youtubeId}?autoplay=1`}
             title={sermonTitle}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-            className="w-full h-full"
+            className="absolute top-0 left-0 w-full h-full"
           ></iframe>
         </div>
       </div>

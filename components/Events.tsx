@@ -1,4 +1,5 @@
 
+
 import React, { useRef } from 'react';
 import { useLocalization } from '../hooks/useLocalization';
 import { useAdmin } from '../hooks/useAdmin';
@@ -141,7 +142,7 @@ const Events: React.FC = () => {
           ))}
         </div>
         <div className="text-center mt-12">
-           <a href="#" className="bg-gray-800 text-white px-8 py-3 rounded-full hover:bg-gray-900 transition-all font-semibold">
+           <a href="#/events/" className="bg-gray-800 text-white px-8 py-3 rounded-full hover:bg-gray-900 transition-all font-semibold">
              {t('events.button')}
            </a>
         </div>

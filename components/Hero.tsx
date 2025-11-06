@@ -137,7 +137,7 @@ const Hero: React.FC = () => {
             <a href="#about" className="bg-white/20 backdrop-blur-sm border border-white text-white px-8 py-3 rounded-full hover:bg-white/30 transition-all font-semibold text-lg transform hover:scale-105">
               <Editable as="span" contentKey="hero.whoWeAre" />
             </a>
-            <a href="#contact" className="bg-white/20 backdrop-blur-sm border border-white text-white px-8 py-3 rounded-full hover:bg-white/30 transition-all font-semibold text-lg transform hover:scale-105">
+            <a href="#/sermons/recent-sermons" className="bg-white/20 backdrop-blur-sm border border-white text-white px-8 py-3 rounded-full hover:bg-white/30 transition-all font-semibold text-lg transform hover:scale-105">
               <Editable as="span" contentKey="hero.sundayService" />
             </a>
           </div>

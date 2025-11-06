@@ -8,6 +8,7 @@ interface EditableProps {
   contentKey: string;
   className?: string;
   isTextarea?: boolean;
+  render?: (text: string) => React.ReactNode;
 }
 
 // Helper to get nested value
@@ -15,7 +16,7 @@ const getNestedValue = (obj: any, path: string) => {
   return path.split('.').reduce((acc, part) => acc && acc[part], obj);
 };
 
-const Editable: React.FC<EditableProps> = ({ as: Component = 'span', contentKey, className, isTextarea = false }) => {
+const Editable: React.FC<EditableProps> = ({ as: Component = 'span', contentKey, className, isTextarea = false, render }) => {
   const { isAdminMode, content, updateContent } = useAdmin();
   const { language } = useLocalization();
   const [isEditing, setIsEditing] = useState(false);
@@ -38,6 +39,13 @@ const Editable: React.FC<EditableProps> = ({ as: Component = 'span', contentKey,
     setEditText(e.target.value);
   };
 
+  const renderText = () => {
+    if (render) {
+        return render(text);
+    }
+    return text;
+  };
+
   if (isAdminMode) {
     if (isEditing) {
       if (isTextarea) {
@@ -46,7 +54,7 @@ const Editable: React.FC<EditableProps> = ({ as: Component = 'span', contentKey,
             value={editText}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={`${className} bg-yellow-100 border border-blue-500 rounded-md p-1 w-full`}
+            className={`${className} bg-yellow-100 border border-blue-500 rounded-md p-2 w-full min-h-[200px]`}
             autoFocus
           />
         );
@@ -67,13 +75,13 @@ const Editable: React.FC<EditableProps> = ({ as: Component = 'span', contentKey,
           className={`${className} cursor-pointer hover:outline outline-2 outline-offset-2 outline-blue-500 transition-all rounded`}
           onClick={() => setIsEditing(true)}
         >
-          {text}
+          {renderText()}
         </Component>
       );
     }
   }
 
-  return <Component className={className}>{text}</Component>;
+  return <Component className={className}>{renderText()}</Component>;
 };
 
 export default Editable;

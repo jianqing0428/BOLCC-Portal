@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { useLocalization } from '../hooks/useLocalization';
+import Editable from './Editable';
 
 const ContactInfoItem: React.FC<{ title: string, children: React.ReactNode }> = ({ title, children }) => (
   <div>
@@ -16,7 +16,7 @@ const Contact: React.FC = () => {
     <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-800">{t('contact.title')}</h2>
+            <Editable as="h2" contentKey="contact.title" className="text-3xl md:text-4xl font-bold mb-12 text-gray-800" />
         </div>
         <div className="flex flex-col md:flex-row gap-12 justify-center">
           <div className="md:w-1/3 space-y-6">

@@ -51,21 +51,21 @@ const Header: React.FC<HeaderProps> = ({ isTransparent }) => {
     <header className={headerClasses}>
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <a href="#/" className={`flex items-center gap-3 transition-colors ${logoClasses}`}>
-          <LogoIcon className="h-10 w-10" />
-          <span className="text-4xl font-bold">{t('header.logo')}</span>
+          <LogoIcon className="h-9 w-9" />
+          <span className="text-3xl font-bold">{t('header.logo')}</span>
         </a>
         <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map(link => (
-            <a key={link.key} href={link.href} className={`transition-colors text-xl font-bold ${navLinkClasses}`}>
+            <a key={link.key} href={link.href} className={`transition-colors text-lg font-bold ${navLinkClasses}`}>
               {t(link.key)}
             </a>
           ))}
         </nav>
         <div className="hidden md:flex items-center space-x-4">
-          <button onClick={toggleLanguage} className={`text-lg font-semibold transition-colors w-20 text-center ${navLinkClasses}`}>
+          <button onClick={toggleLanguage} className={`text-base font-semibold transition-colors w-20 text-center ${navLinkClasses}`}>
             {language === Language.EN ? '中文' : 'English'}
           </button>
-          <a href="#contact" className="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all text-lg font-semibold">
+          <a href="#contact" className="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-700 transition-all text-base font-semibold">
             {t('header.newHere')}
           </a>
         </div>
@@ -80,14 +80,14 @@ const Header: React.FC<HeaderProps> = ({ isTransparent }) => {
         <div className="md:hidden bg-white shadow-lg absolute top-full left-0 w-full">
           <nav className="flex flex-col items-center space-y-4 p-6">
             {navLinks.map(link => (
-              <a key={link.key} href={link.href} onClick={() => setIsMenuOpen(false)} className="text-gray-600 hover:text-blue-600 transition-colors py-2 text-2xl font-bold">
+              <a key={link.key} href={link.href} onClick={() => setIsMenuOpen(false)} className="text-gray-600 hover:text-blue-600 transition-colors py-2 text-xl font-bold">
                 {t(link.key)}
               </a>
             ))}
-            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all text-xl font-semibold mt-4">
+            <a href="#contact" onClick={() => setIsMenuOpen(false)} className="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all text-lg font-semibold mt-4">
               {t('header.newHere')}
             </a>
-            <button onClick={() => { toggleLanguage(); setIsMenuOpen(false); }} className="text-xl font-semibold text-gray-600 hover:text-blue-600 transition-colors py-2 mt-2">
+            <button onClick={() => { toggleLanguage(); setIsMenuOpen(false); }} className="text-lg font-semibold text-gray-600 hover:text-blue-600 transition-colors py-2 mt-2">
               {language === Language.EN ? '中文' : 'English'}
             </button>
           </nav>
